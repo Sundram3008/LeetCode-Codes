@@ -38,13 +38,6 @@ public:
             temp= temp->child[idx];
         }
         return true;
-        int cnt=0;
-        for(int i=0; i<26; i++){
-            if(temp->child[i]!=NULL){
-                cnt++;    
-            }
-        }
-        return (cnt>0);
     }
 };
 
