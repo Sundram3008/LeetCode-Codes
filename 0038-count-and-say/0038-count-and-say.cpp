@@ -20,7 +20,7 @@ public:
             }
             ans="";
             for(auto j:v){
-                ans= ans + to_string(j.first)+ j.second;
+                ans+=to_string(j.first)+ j.second;
             }
         }
         return ans;
