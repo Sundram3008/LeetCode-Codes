@@ -1,11 +1,10 @@
 class Solution {
 public:
     vector<vector<int>> ans;
-    set<vector<int>> st;
     void rec(vector<int> &v, int i, int k, vector<int> temp){
         if(i>= v.size()){
             if(k==0){
-                st.insert(temp);
+                ans.push_back(temp);
             }
             return;
         }
@@ -22,7 +21,6 @@ public:
         vector<int> temp;
         sort(candidates.begin(), candidates.end());
         rec(candidates, 0, target, temp);
-        for(auto i: st) ans.push_back(i);
         return ans;
     }
     
