@@ -5,4 +5,4 @@ Here all Leetcode Submissions are being uploaded from date 19-september-2022, us
 Leetcode Id : https://leetcode.com/sundrammishra308
 
 
-![](https://raw.githubusercontent.com/Sundram3008/github-stats/master/generated/overview.svg#gh-dark-mode-only)
+[![Sundram's GitHub stats](https://github-readme-stats.vercel.app/api?username=Sundram3008)](https://github.com/Sundram3008/github-readme-stats)
