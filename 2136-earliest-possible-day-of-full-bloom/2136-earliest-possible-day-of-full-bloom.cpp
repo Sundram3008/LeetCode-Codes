@@ -11,11 +11,11 @@ public:
             vp.push_back(make_pair(plantTime[i],growTime[i]));
         }
         sort(vp.begin(), vp.end(), myComp);
-        int delay=-1, ans=0;
+        int delay=0, ans=0;
         for(auto i: vp){
             delay += i.first;
             ans=max(ans, delay+i.second+1);
         }
-        return ans;
+        return ans-1;
     }
 };
