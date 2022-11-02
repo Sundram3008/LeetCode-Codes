@@ -12,15 +12,16 @@ public:
             q.pop();
             if(str==end) return moves;
             for(int i=0; i<8; i++){
+                char ori= str[i];
                 for(int j=0;j<=3; j++){
                     if(choice[j]!=str[i]){
-                        string t= str;
-                        t[i]= choice[j];
-                        if(mp[t]){ 
-                            mp[t]=false;
-                            q.push({t,moves+1});
+                        str[i]= choice[j];
+                        if(mp[str]){ 
+                            mp[str]=false;
+                            q.push({str,moves+1});
                         }
                     }
+                    str[i]=ori;
                 }
             }
         }
