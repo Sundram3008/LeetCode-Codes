@@ -1,21 +1,22 @@
 class Solution {
 public:
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
-        int n= graph.size();
-        unordered_map<int,bool> mp;
+        vector<vector<int>> ans;
         queue<pair<int, vector<int>>> q;
         q.push({0,{0}});
-        vector<vector<int>> ans;
         while(!q.empty()){
-            int x= q.front().first;
-            vector<int> v= q.front().second;
+            int idx= q.front().first;
+            vector<int> temp= q.front().second;
             q.pop();
-            for(int i=0; i<graph[x].size(); i++){
-                v.push_back(graph[x][i]);
-                q.push({graph[x][i], v});
-                v.pop_back();
+            if(idx== graph.size()-1){
+                ans.push_back(temp);
+                continue;
             }
-            if(v.back()==n-1) ans.push_back(v);
+            for(auto i: graph[idx]){
+                temp.push_back(i);
+                q.push({i,temp});
+                temp.pop_back();
+            }
         }
         return ans;
     }
