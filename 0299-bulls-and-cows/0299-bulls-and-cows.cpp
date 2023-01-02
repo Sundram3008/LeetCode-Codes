@@ -17,7 +17,6 @@ public:
                 }
             }
         }
-        string ans= to_string(bull)+"A"+ to_string(cow)+ "B";
-        return ans;
+        return to_string(bull)+"A"+ to_string(cow)+ "B";
     }
 };
