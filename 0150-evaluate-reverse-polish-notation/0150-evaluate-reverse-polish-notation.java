@@ -1,41 +1,40 @@
 class Solution {
-public:
-    int evalRPN(vector<string>& tokens) {
-        stack<long> st;
-        for(int i=0; i<tokens.size(); i++){
-            long a,b;
-            if(tokens[i]=="+"){
-                a= st.top();
-                st.pop();
-                b= st.top();
-                st.pop();
-                st.push(b+a);
-            }
-            else if(tokens[i]=="-"){
-                a= st.top();
-                st.pop();
-                b= st.top();
-                st.pop();
-                st.push(b-a);
-            }
-            else if(tokens[i]=="*"){
-                a= st.top();
-                st.pop();
-                b= st.top();
-                st.pop();
-                st.push(b*a);
-            }
-            else if(tokens[i]=="/"){
-                a= st.top();
-                st.pop();
-                b= st.top();
-                st.pop();
-                st.push(b/a);
-            }else {
-                a= stol(tokens[i]);
-                st.push(a);
-            }
-        }
-        return st.top();
+    public int evalRPN(String[] tokens) {
+        Integer a, b;
+        Stack<Integer> st = new Stack<>();
+        for(int i=0; i<tokens.length; i++){
+	            if(tokens[i].equals("+")){
+	                a= st.peek();
+	                st.pop();
+	                b= st.peek();
+	                st.pop();
+	                st.push(b+a);
+	            }
+	            else if(tokens[i].equals("-")){
+	                a= st.peek();
+	                st.pop();
+	                b= st.peek();
+	                st.pop();
+	                st.push(b-a);
+	            }
+	            else if(tokens[i].equals("*")){
+	                a= st.peek();
+	                st.pop();
+	                b= st.peek();
+	                st.pop();
+	                st.push(b*a);
+	            }
+	            else if(tokens[i].equals("/")){
+	                a= st.peek();
+	                st.pop();
+	                b= st.peek();
+	                st.pop();
+	                st.push(b/a);
+	            }else {
+	                a= Integer.parseInt(tokens[i]);
+	                st.push(a);
+	            }
+	        }
+	        return (int)st.peek();
     }
-};
+}
