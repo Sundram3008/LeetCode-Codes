@@ -23,7 +23,7 @@ class Solution {
             }
         }
         for(auto j: edges){
-            if(dist[j[0]]!= INT_MAX && dist[j[0]]+j[2]< dist[j[1]])
+            if(dist[j[0]]!= 100000000 && dist[j[0]]+j[2]< dist[j[1]])
                 return {-1};
         }
         return dist;
