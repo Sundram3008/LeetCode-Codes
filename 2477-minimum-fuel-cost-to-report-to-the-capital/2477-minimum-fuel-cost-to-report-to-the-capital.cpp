@@ -11,7 +11,7 @@ public:
             }
         }
         if(node!=0){
-            fuel+= (val+k-1)/k;
+            fuel+= ceil((val*1.0)/k);
         }
         return val;
     }
