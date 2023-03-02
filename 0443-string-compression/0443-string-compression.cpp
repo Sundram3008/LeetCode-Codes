@@ -9,15 +9,10 @@ public:
             j--;
             chars[i]=ch;
             if(cnt>=2){
-                vector<int> v;
-                while(cnt>0) {
-                    v.push_back(cnt%10);
-                    cnt/=10;
-                }
-                reverse(v.begin(), v.end());
+                string v= to_string(cnt);
                 for(int k=0; k<v.size(); k++){
                     i++;
-                    chars[i]= v[k]+'0';
+                    chars[i]= v[k];
                 }
             }
             i++;
