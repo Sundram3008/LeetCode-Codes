@@ -10,21 +10,34 @@
  */
 class Solution {
 public:
-    ListNode* temp;
+// best ->
+//     ListNode* temp;
+//     Solution(ListNode* head) {
+//         temp=head;
+//     }
+    
+//     int getRandom() {
+//         int ans=0, i=1;
+//         ListNode* pT= temp;
+//         while(pT!=NULL){
+//             if(rand()%i==0) ans= pT->val;
+//             i++;
+//             pT= pT->next;
+//         }
+//         return ans;
+//     }
+    vector<int> vals;
     Solution(ListNode* head) {
-        temp=head;
+        while(head){
+            vals.push_back(head->val);
+            head=head->next;
+        }
+    }
+    int getRandom() {
+        int x= rand()% vals.size();
+        return vals[x];
     }
     
-    int getRandom() {
-        int ans=0, i=1;
-        ListNode* pT= temp;
-        while(pT!=NULL){
-            if(rand()%i==0) ans= pT->val;
-            i++;
-            pT= pT->next;
-        }
-        return ans;
-    }
 };
 
 /**
