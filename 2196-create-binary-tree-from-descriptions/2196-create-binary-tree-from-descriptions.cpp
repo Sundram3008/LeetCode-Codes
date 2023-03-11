@@ -14,7 +14,7 @@ public:
     TreeNode* createBinaryTree(vector<vector<int>>& desc) {
         unordered_map<int, TreeNode*> nodes;
         unordered_map<int,bool> isChild;
-        for(auto i: desc){
+        for(auto &i: desc){
             
             if(nodes.find(i[1])==nodes.end()) nodes[i[1]] = new TreeNode(i[1]);
             if(nodes.find(i[0])==nodes.end()) nodes[i[0]] = new TreeNode(i[0]);
@@ -27,7 +27,7 @@ public:
             
             isChild[i[1]]=true;
         }
-        for(auto i: desc){
+        for(auto &i: desc){
             if(isChild.find(i[0])==isChild.end()) return nodes[i[0]];
         }
         return NULL;
