@@ -38,6 +38,7 @@ public:
     
     int pre=0, post=0;
     TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
+        // while iterating on pre and adding left node as we know if we find our value equal to postorder element then we know there is no subtree of our current node as in postorder childrens are visited first and hence this solution will work first if not matches till that time keep adding in left if matches go to new postorder value add nodes to right and its subtree and keep this process going recursively
         TreeNode* root= new TreeNode(preorder[pre++]);
         if(root->val!=postorder[post]) root->left= constructFromPrePost(preorder, postorder);
         if(root->val!=postorder[post]) root->right= constructFromPrePost(preorder, postorder);
