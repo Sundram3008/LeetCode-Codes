@@ -12,6 +12,7 @@ public:
     bool search(string sw) {
         for(auto i: strs){
             int f=0, s=0, cnt=0;
+            if(i.size()==sw.size())
             while(f<i.size() && s<sw.size()){
                 if(i[f]!= sw[s]){
                     cnt++;
