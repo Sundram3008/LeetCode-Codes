@@ -1,18 +1,18 @@
 class MagicDictionary {
 public:
-    vector<string> strs;
+    unordered_map<int,vector<string>> strs;
     MagicDictionary() {
         
     }
     
     void buildDict(vector<string> dictionary) {
-        strs= dictionary;
+        for(auto dict: dictionary)
+        strs[dict.size()].push_back(dict);
     }
     
     bool search(string sw) {
-        for(auto i: strs){
+        for(auto i: strs[sw.size()]){
             int f=0, s=0, cnt=0;
-            if(i.size()==sw.size())
             while(f<i.size() && s<sw.size()){
                 if(i[f]!= sw[s]){
                     cnt++;
