@@ -12,8 +12,11 @@ class Solution
         if(i<0 || j<0 || i>=n || j>=n || grid[i][j]==0 ) return false;
         if(grid[i][j]==2) return true;
         grid[i][j]=0;
-        bool x= (help(grid, n, i+1,j)) || (help(grid, n, i, j+1)) || (help(grid, n, i-1, j)) || (help(grid, n, i, j-1));
-        return x;
+        if(help(grid, n, i+1,j)) return true;
+        if(help(grid, n, i, j+1)) return true;
+        if(help(grid, n, i-1, j)) return true;
+        if(help(grid, n, i, j-1)) return true;
+        return false;
     }
     bool is_Possible(vector<vector<int>>& grid) 
     {
