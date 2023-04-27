@@ -1,13 +1,13 @@
 class Solution {
 public:
     int bulbSwitch(int n) {
-        int ans=1, cnt=0, x=1;
-        while(cnt<n){
-            x+=2;
-            cnt+=x;
-            ans++;
-        }
-        return ans-1;
+        // int ans=1, cnt=0, x=1;
+        // while(cnt<n){
+        //     x+=2;
+        //     cnt+=x;
+        //     ans++;
+        // }
+        return sqrt(n);
     }
 };
 // sequence - 
