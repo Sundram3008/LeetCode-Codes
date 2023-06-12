@@ -26,14 +26,13 @@ class Solution{
     // }
     int cutRod(int price[], int n) {
         //code here
-        vector<vector<int>> dp(n+1, vector<int> (n+1,0));
+        vector<int> dp(n+1, 0);
         for(int i=1; i<=n; i++){
-            for(int j=1; j<=n; j++){
-                if(j>=i) dp[i][j]= max(dp[i-1][j], dp[i][j-i]+ price[i-1]);
-                else dp[i][j]= dp[i-1][j];
+            for(int j=i; j<=n; j++){
+                dp[j]= max(dp[j], dp[j-i]+ price[i-1]);
             }
         }
-        return dp[n][n];
+        return dp[n];
     }
 };
 
