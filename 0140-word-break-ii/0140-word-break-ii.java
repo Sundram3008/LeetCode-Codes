@@ -1,34 +1,27 @@
 class Solution {
-public:
-    vector<vector<string>> wordsStream;
-    void partitions(int idx, int n, string &s, unordered_map<string, bool> &words, vector<string> &temp){
+    
+    private void helper(int idx, int n, String s, Map<String, Boolean> mp, List<String> temp, List<String> ans){
         if(idx==n){
-            wordsStream.push_back(temp);
-            return;
+            ans.add(String.join(" ", temp));
+            return ;
         }
-        string word="";
+        String word="";
         for(int i=idx; i<n; i++){
-            word.push_back(s[i]);
-            if(words[word]){
-                temp.push_back(word);
-                partitions(i+1, n, s, words, temp);
-                temp.pop_back();
+            word+= s.charAt(i);
+            if(mp.containsKey(word)){
+                temp.add(word);
+                helper(i+1, n, s, mp, temp, ans);
+                temp.remove(temp.size()-1);
             }
         }
+        
     }
-    vector<string> wordBreak(string s, vector<string>& wordDict) {
-        vector<string> sentences, tempWords;
-        unordered_map<string, bool> dict;
-        for(auto &i: wordDict) dict[i]=true;
-        partitions(0, s.length(), s, dict, tempWords);
-        for(auto &i: wordsStream){
-            string temp;
-            for(auto &j: i){
-                temp+= j+" ";
-            }
-            temp.pop_back();
-            sentences.push_back(temp);
-        }
-        return sentences;
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        List<String> ans= new ArrayList<String>();
+        List<String> temp= new ArrayList<String>();
+        Map<String, Boolean> mp= new HashMap<String, Boolean>();
+        for(String i: wordDict) mp.put(i, true);
+        helper(0, s.length(), s, mp, temp, ans);
+        return ans;
     }
-};
+}
