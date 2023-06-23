@@ -16,7 +16,7 @@ public:
             for(int j= 0; j<i; j++){
                 int diff= nums[i]-nums[j];
                 int cnt = 1;
-                if(dp[j].count(diff)) cnt = dp[j][diff];
+                if(dp[j].find(diff)!=dp[j].end()) cnt = dp[j][diff];
                 dp[i][diff] = 1 + cnt;  
                 ans= max(dp[i][diff], ans);
             }
