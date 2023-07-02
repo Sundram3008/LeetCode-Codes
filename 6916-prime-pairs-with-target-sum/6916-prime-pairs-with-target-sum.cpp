@@ -5,6 +5,7 @@ public:
         primes[1]=false;
         for(int i=2; i<=n; i++){
             int x= i+i;
+            if(primes[i])
             while(x<=n){
                 primes[x]=false;
                 x+=i;
