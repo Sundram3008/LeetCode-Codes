@@ -44,29 +44,30 @@ class Solution
     Node * removeDuplicates( Node *head) 
     {
      // your code goes here
-      unordered_set<int> st;
-    //  Node* temp=head;
-    //  while(temp!=NULL){
-    //      Node* x=temp;
-    //      while(x->next !=NULL && st.find(x->next->data)!=st.end()){
-    //         x= x->next;
-    //      }
-    //      st.insert(temp->data);
-    //      temp->next=x;
-    //      temp= temp->next;
-    //  }
-    //  return head;
-    
-        Node* ans= new Node(-1), *temp=ans;
-        while(head!=NULL){
-            if(st.find(head->data)==st.end()){
-                temp->next= new Node(head->data);
-                temp= temp->next;
+        unordered_set<int> st;
+        Node* temp=head->next, *prev=head;
+        st.insert(head->data);
+        while(temp!=NULL){
+            prev->next= temp;
+            if(st.find(temp->data)==st.end()){
+                prev=prev->next;
             }
-            st.insert(head->data);
-            head= head->next;
+            st.insert(temp->data);
+            temp= temp->next;
         }
-        return ans->next;
+        prev->next=temp;
+        return head;
+    
+        // Node* ans= new Node(-1), *temp=ans;
+        // while(head!=NULL){
+        //     if(st.find(head->data)==st.end()){
+        //         temp->next= new Node(head->data);
+        //         temp= temp->next;
+        //     }
+        //     st.insert(head->data);
+        //     head= head->next;
+        // }
+        // return ans->next;
     }
 };
 
