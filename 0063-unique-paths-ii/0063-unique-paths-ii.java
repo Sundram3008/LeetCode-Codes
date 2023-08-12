@@ -4,15 +4,13 @@ class Solution {
         int row= obstacleGrid.length, col= obstacleGrid[0].length;
         
         if(obstacleGrid[0][0]==1 || obstacleGrid[row-1][col-1]==1) return 0;
-        
-        int[][] dp = new int[row+1][col+1];
-        dp[1][1]=1;
-        for(int i=1; i<=row; i++){
-            for(int j=1; j<=col; j++){
-                if(obstacleGrid[i-1][j-1]!= 1)
-                dp[i][j]+= dp[i-1][j]+ dp[i][j-1];
+        obstacleGrid[0][0]=1;
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                if((i==0 && j==0) || obstacleGrid[i][j]!= 1) obstacleGrid[i][j]+= ((i-1>=0)?obstacleGrid[i-1][j]: 0) + ((j-1>=0)?obstacleGrid[i][j-1]:0);
+                else obstacleGrid[i][j]=0;
             }
         }
-        return dp[row][col];
+        return obstacleGrid[row-1][col-1];
     }
 }
