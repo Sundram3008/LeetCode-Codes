@@ -137,18 +137,14 @@ void printCorner(Node *root)
     queue<Node*> q;
     q.push(root);
     while(!q.empty()){
-        vector<int> v;
         int n= q.size();
         for(int i=0; i<n; i++){
             Node* temp= q.front();
             q.pop();
-            v.push_back(temp->data);
+            if(i==0 || i==n-1) cout<<temp->data<<" "; 
             if(temp->left) q.push(temp->left);
             if(temp->right) q.push(temp->right);
         }
-        if(v.size()==0) break;
-        else if(v.size()==1) cout<< v[0]<<" ";
-        else cout<<v[0]<<" "<<v.back()<<" ";
     }
     return ;
 
