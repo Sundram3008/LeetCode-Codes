@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/count-number-of-homogenous-substrings/">1759. Count Number of Homogenous Substrings</a></h2><h3>Medium</h3><hr><div><p>Given a string <code>s</code>, return <em>the number of <strong>homogenous</strong> substrings of </em><code>s</code><em>.</em> Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
+<h2><a href="https://leetcode.com/problems/count-number-of-homogenous-substrings/solution/">1759. Count Number of Homogenous Substrings</a></h2><h3>Medium</h3><hr><div><p>Given a string <code>s</code>, return <em>the number of <strong>homogenous</strong> substrings of </em><code>s</code><em>.</em> Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>A string is <strong>homogenous</strong> if all the characters of the string are the same.</p>
 
